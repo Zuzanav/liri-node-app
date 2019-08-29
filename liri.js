@@ -40,10 +40,11 @@ function commands () {
         break;
 
         case "do-what-it-says":
+        random(userInput);
         break;
 
         default:
-            console.log("please put in a correct command");
+        console.log("please put in a correct command");
         break;
     }
 }
@@ -143,5 +144,24 @@ axios.get(URL).then(function(response) {
 
 }
 
+//========================================================================
 
-// Date of the Event (use moment to format this as "MM/DD/YYYY")
+// DO WHAT IT SAYS --------------------------------------------------
+function random() {
+
+    fs.readFile("random.txt", "utf8", function(error, data) {
+
+        // If an error was experienced we will log it.
+        if (error) {
+          console.log(err);
+        }
+      
+        data = data.split(",");
+
+        songInfo(data[1]);
+        
+      });
+
+};
+
+
